@@ -58,21 +58,21 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-      steps:
-        - uses: actions/checkout@v4
-        - name: Set up Ruby
-          uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: 3.2.2 # Pick a Ruby version.  This should match your .ruby-version
-            bundler-cache: true # runs bundle install and caches
-        - name: Install PostgreSQL Client
-          run: sudo apt-get install libpq-dev
-        - name: Set up database
-          run: |
-            bin/rails db:setup
-            bin/rails db:test:prepare
-        - name: Run rspec
-          run: bin/rspec
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2 # Pick a Ruby version.  This should match your .ruby-version
+          bundler-cache: true # runs bundle install and caches
+      - name: Install PostgreSQL Client
+        run: sudo apt-get install libpq-dev
+      - name: Set up database
+        run: |
+          bin/rails db:setup
+          bin/rails db:test:prepare
+      - name: Run rspec
+        run: bin/rspec
 
     # services:
     #  redis:
