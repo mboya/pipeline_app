@@ -82,7 +82,6 @@ jobs:
           EOF
       - name: Set up database
         run: |
-          bin/rails db:drop
           bin/rails db:environment:set RAILS_ENV=test
           bin/rails db:create
           bin/rails db:setup
