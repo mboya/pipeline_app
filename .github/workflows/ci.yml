@@ -80,10 +80,21 @@ jobs:
           bin/rails db:test:prepare
         env:
           RAILS_ENV: test # Add this line
+      - name: Add SimpleCov
+        run: |
+          echo "gem 'simplecov', group: :test" >> Gemfile
+          bundle install
       - name: Run rspec
         run: bundle exec rspec
         env:
           RAILS_ENV: test # Add this line
+      - name: Upload coverage to CodeClimate
+        uses: paazmaya/action-codeclimate@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          cc_input_type: coverage
+          cc_coverage_file: coverage/.resultset.json
+        if: success()
 
     # services:
     #  redis:

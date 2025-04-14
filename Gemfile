@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 
+gem "sqlite3"
 gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -39,3 +40,4 @@ gem "jsonapi-resources"
 gem "rspec-rails", group: :development
 gem "factory_bot_rails", group: [ :development, :test ]
 gem "shoulda-matchers", group: :test
+gem 'simplecov', group: :test # Add SimpleCov
