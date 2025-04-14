@@ -65,6 +65,13 @@ jobs:
         run: |
           mkdir -p config
           cat > config/database.yml <<EOF
+          development:
+            adapter: postgresql
+            encoding: unicode
+            database: rails_test
+            username: rails
+            password: password
+            host: localhost
           test:
             adapter: postgresql
             encoding: unicode
