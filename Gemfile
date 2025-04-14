@@ -34,7 +34,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem 'jsonapi-resources'
-gem 'rspec-rails', group: :development
-gem 'factory_bot_rails', group: [:development, :test]
-gem 'shoulda-matchers', group: :test
+gem "jsonapi-resources"
+gem "rspec-rails", group: :development
+gem "factory_bot_rails", group: [ :development, :test ]
+gem "shoulda-matchers", group: :test

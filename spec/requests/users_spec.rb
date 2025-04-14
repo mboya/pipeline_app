@@ -42,7 +42,7 @@ RSpec.describe "Users API", type: :request do
       end
 
       it 'returns a not found message' do
-        #shoulda matchers can help with json body matchers
+        # shoulda matchers can help with json body matchers
         expect(JSON.parse(response.body)['errors'][0]['title']).to match("Record not found")
       end
     end
