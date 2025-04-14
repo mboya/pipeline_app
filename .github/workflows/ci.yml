@@ -61,8 +61,21 @@ jobs:
           bundler-cache: true # runs bundle install and caches
       - name: Install PostgreSQL Client
         run: sudo apt-get install libpq-dev
+      - name: Create database.yml
+        run: |
+          mkdir -p config
+          cat > config/database.yml <<EOF
+          test:
+            adapter: postgresql
+            encoding: unicode
+            database: rails_test
+            username: rails
+            password: password
+            host: localhost
+          EOF
       - name: Set up database
         run: |
+          bin/rails db:create
           bin/rails db:setup
           bin/rails db:test:prepare
       - name: Run rspec
